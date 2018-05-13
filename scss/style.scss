@@ -107,3 +107,20 @@ h2 {
 		}
 	}
 }
+footer {
+	width: 100%;
+	padding: 2em 10em;
+	background: #000;
+	@include clearfix;
+	.logo {
+		font-size: 1em;
+		border-bottom: 1px solid $main_red;
+		margin-bottom: 2em;
+	}
+	address {
+		float: left;
+	}
+	.map {
+		float: right;
+	}
+}
