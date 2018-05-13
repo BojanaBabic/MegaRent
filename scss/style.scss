@@ -84,3 +84,26 @@ h2 {
 		}
 	}
 }
+.pricing {
+	table,th,td {
+		border-collapse: collapse;
+		padding: 0.5em 2em;
+		margin: $centerMargin;
+	}
+	td {
+		text-align: center;
+		border-bottom: 1px solid $main_text_color;
+		&:first-child{
+			background: $grey_background;
+		}
+	}
+	thead {
+		background: $main_red;
+	}
+	th {
+		color: white;
+		&:first-child {
+			background: $red_dark;
+		}
+	}
+}
