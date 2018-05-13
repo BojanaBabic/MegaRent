@@ -58,3 +58,29 @@ section{
 		text-align: center;
 	}
 }
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+	padding: 1em;
+}
+.selection {
+	@include clearfix;
+	background: $grey_background;
+	.column {
+		float: left;
+		width: 25%;
+		text-align: center;
+		img {
+			width: 100%;
+		}
+		p {
+			padding: 1em;
+		}
+		a {
+			background: $main_red;
+			text-decoration: none;
+			color: white;
+			padding: 0.5em 1em;
+		}
+	}
+}
