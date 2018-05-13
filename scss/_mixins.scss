@@ -1,0 +1,198 @@
+@mixin debug($DEBUG) {
+
+	@if $DEBUG {
+
+		border: 1px solid red;
+	}
+}
+
+@mixin main {
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: $main_font;
+		color: $main_text_color;
+	}
+}
+
+@mixin clearfix {
+	 &:before, &:after {
+	    content: "";
+	    display: table;
+	}
+	&:after {
+	    clear: both;
+	}
+}
+
+@mixin borderRadius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin opacity($value){
+		-khtml-opacity: $value;
+	  -moz-opacity: $value;
+	       opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value * 100})";
+		filter: alpha(opacity=$value * 100);
+
+}
+
+@mixin invisible {
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip: rect(0, 0, 0, 0);
+	position: absolute;
+
+}
+
+
+@mixin phoneMax {
+
+	@media (max-width: #{$tablet-width - 1px}) {
+
+		@content;
+	}
+}
+
+@mixin tabletMax {
+
+	@media (max-width: #{$desktop-width - 1px}) {
+
+		@content;
+	}
+}
+
+/*     $mobile-width: 320px;             */
+@mixin phone {
+
+	@media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+
+		@content;
+	}
+}
+/* $tablet: 768- 1023px;  */
+@mixin tablet {
+
+	@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+
+		@content;
+	}
+}
+
+/*   $desktop-width: 1024px;             */
+@mixin desktop {
+
+	@media (min-width: #{$desktop-width}) {
+
+		@content;
+	}
+}
+
+/* BITNO  */
+
+@mixin backgroundSizePrefix($size) {
+
+	/*  auto | cover | contain | initial | inherit | length   */
+	  -webkit-background-size: $size;
+     -moz-background-size: $size;
+       -o-background-size: $size;
+          background-size: $size;
+}
+
+/* CSS 2D TRANSFORMS */
+
+@mixin transformTranslate($x, $y) {
+
+	-ms-transform: translate($x,$y); /* IE 9 50px, 100px */
+    -webkit-transform: translate($x,$y); /* Safari */
+    transform: translate($x,$y); /* Standard syntax */
+}
+
+@mixin transformRotate($deg) {              /* polaroid */
+
+	-ms-transform: rotate($deg); /* IE9 */
+	-webkit-transform: rotate($deg); /* Safari */
+	transform: rotate($deg);
+}
+/* The scale() method increases or decreases the size of an element */
+@mixin transformScale($time1,$time2) {              /* polaroid */
+
+	-ms-transform: scale($time1,$time2); /* IE9 */
+	-webkit-transform: scale($time1,$time2); /* Safari */
+	transform: scale($time1,$time2);
+}
+
+/* The skewX() method skews an element along the X-axis by the given angle. */
+@mixin transformSkewX($deg) {              /* polaroid */
+
+	-ms-transform: skewX($deg); /* IE9 */
+	-webkit-transform: skewX($deg); /* Safari */
+	transform: skewX($deg);
+}  
+
+@mixin transformSkewY($deg) {              /* polaroid */
+
+	-ms-transform: skewY($deg); /* IE9 */
+	-webkit-transform: skewY($deg); /* Safari */
+	transform: skewY($deg);
+}
+
+@mixin transformSkew($deg1, $deg2) {              /* polaroid */
+
+	-ms-transform: skew($deg1, $deg2); /* IE9 */
+	-webkit-transform: skew($deg1,$deg2); /* Safari */
+	transform: skew($deg1, $deg2);
+}
+
+@mixin transformMatrix($v1, $v2, $v3, $v4, $v5, $v6) {              /* polaroid */
+
+	-ms-transform: matrix($v1, $v2, $v3, $v4, $v5, $v6); /* IE9 */
+	-webkit-transform: matrix($v1, $v2, $v3, $v4, $v5, $v6); /* Safari */
+	transform: matrix($v1, $v2, $v3, $v4, $v5, $v6);
+}
+
+/* CSS TRANSITIONS */
+
+@mixin transition($property, $duration, $delay) {
+
+	-webkit-transition: $property $duration;
+	-webkit-transition-delay: $delay;
+	transition: $property $duration;
+	transition-delay: $delay;
+}
+
+@mixin transition($property1, $duration1, $property2, $duration2 ) {
+
+	-webkit-transition: $property1 $duration1, $property2 $duration2;
+	transition: $property1 $duration1, $property2 $duration2;
+}
+
+/* https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition_transform   */
+@mixin transitionTransformRotate($property1, $duration1, $property2, $duration2, $time) {
+
+	-webkit-transition: $property1 $duration1, $property2 $duration2, -webkit-transform $time;
+	transition:  $property1 $duration1, $property2 $duration2, transform $time;
+}
+
+@mixin transition($property, $duration, $function, $delay) {
+
+	/* For Safari 3.1 to 6.0 */
+	-webkit-transition-property: $property;
+	-webkit-transition-duration: $duration;
+	-webkit-transition-timing-function: $function;
+	-webkit-transition-delay: $delay;
+	/* Standard syntax */
+	transition-property: $property;
+	transition-duration: $duration;
+	transition-timing-function: $function;
+	ttransition-delay: $delay;
+
+}
